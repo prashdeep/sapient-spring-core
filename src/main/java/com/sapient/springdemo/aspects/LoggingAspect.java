@@ -11,8 +11,9 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
 
     @Before("execution(* com.sapient.springdemo.service.EmployeeServiceImpl.saveEmployee(..))")
-    public void logBefore(JoinPoint joinPoint) {
+    public void logBefore(JoinPoint target) {
         System.out.println("------------logging before the method is getting executed-------------------");
-        System.out.println(joinPoint.getTarget() instanceof EmployeeService);
+        System.out.println(target.getArgs()[0]);
+        System.out.println(target.getTarget() instanceof EmployeeService);
     }
 }
