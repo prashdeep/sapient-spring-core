@@ -11,8 +11,6 @@ public class EmployeeCRUDClient {
         ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
         EmployeeService employeeService = context.getBean("employeeService", EmployeeService.class);
         Employee pavan = new Employee(23, "Pavan");
-
         employeeService.saveEmployee(pavan);
-
     }
 }

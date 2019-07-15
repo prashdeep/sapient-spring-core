@@ -3,17 +3,20 @@ package com.sapient.springdemo.service;
 import com.sapient.springdemo.dao.EmployeeDAO;
 import com.sapient.springdemo.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component(value = "employeeService")
+@Service(value = "employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 
-    @Autowired
+    @Autowired( required = true)
+    @Qualifier(value = "mysqlDAOImpl")
     private EmployeeDAO employeeDAO;
 
-    public EmployeeServiceImpl(EmployeeDAO employeeDAO){
+    public EmployeeServiceImpl(@Qualifier(value = "mysqlDAOImpl")EmployeeDAO employeeDAO){
         this.employeeDAO = employeeDAO;
     }
 
