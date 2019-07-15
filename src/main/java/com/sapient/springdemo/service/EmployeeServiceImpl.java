@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+@Component(value = "employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
