@@ -21,6 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee saveEmployee(Employee employee) {
+        System.out.println("Inside the save employee method of Employee service class ....");
         return employeeDAO.save(employee);
     }
 
