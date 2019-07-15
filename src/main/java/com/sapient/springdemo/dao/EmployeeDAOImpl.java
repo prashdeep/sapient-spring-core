@@ -1,10 +1,12 @@
 package com.sapient.springdemo.dao;
 
 import com.sapient.springdemo.model.Employee;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class EmployeeDAOImpl implements EmployeeDAO {
 
     private static List<Employee> employees = new ArrayList<Employee>();

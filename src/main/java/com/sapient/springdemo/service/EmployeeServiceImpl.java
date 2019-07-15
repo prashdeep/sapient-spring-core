@@ -2,11 +2,15 @@ package com.sapient.springdemo.service;
 
 import com.sapient.springdemo.dao.EmployeeDAO;
 import com.sapient.springdemo.model.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class EmployeeServiceImpl implements EmployeeService {
 
+    @Autowired
     private EmployeeDAO employeeDAO;
 
     public EmployeeServiceImpl(EmployeeDAO employeeDAO){
