@@ -6,12 +6,13 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="employeeService" class="com.sapient.springdemo.service.EmployeeServiceImpl">
+    <!--<bean id="employeeService" class="com.sapient.springdemo.service.EmployeeServiceImpl">
         <constructor-arg ref="employeeDAO"/>
     </bean>
 
-    <bean id="employeeDAO" class="com.sapient.springdemo.dao.EmployeeDAOImpl" />
+    <bean id="employeeDAO" class="com.sapient.springdemo.dao.EmployeeDAOImpl" />-->
 
-    <context:annotation-config />
+    <!--<context:annotation-config /> -->
+    <context:component-scan base-package="com.sapient.springdemo"/>
 
 </beans>
