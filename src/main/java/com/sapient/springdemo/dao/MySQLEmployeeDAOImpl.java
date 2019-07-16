@@ -38,7 +38,13 @@ public class MySQLEmployeeDAOImpl implements EmployeeDAO {
     }
 
     public Employee findById(long id) {
-        return null;
+        return jdbcTemplate.queryForObject("select * from Employee where id=" + id,
+                (rs, rowNum) -> {
+                   Employee employee =  new Employee(rs.getInt(1), rs.getString(2));
+                           employee.setAge(45);
+                           return employee;
+                });
+
     }
 
     public void deleteEmployee(long id) {

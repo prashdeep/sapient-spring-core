@@ -30,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public Employee findById(long id) {
-        return null;
+        return employeeDAO.findById(id);
     }
 
     public void deleteEmployee(long id) {

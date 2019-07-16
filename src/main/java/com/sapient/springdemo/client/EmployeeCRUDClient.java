@@ -5,6 +5,7 @@ import com.sapient.springdemo.service.EmployeeService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import  java.util.List;
+import java.util.function.Consumer;
 
 public class EmployeeCRUDClient {
 
@@ -17,9 +18,12 @@ public class EmployeeCRUDClient {
         //employeeService.saveEmployee(pavan);
         List<Employee> employeeList = employeeService.fetchAllEmployees();
 
-        for(Employee employee: employeeList){
+        /*for(Employee employee: employeeList){
             System.out.println(employee);
-        }
+        }*/
 
+        //employeeList.forEach(System.out::println); //method references
+        Employee employee = employeeService.findById(1);
+        System.out.println(employee);
     }
 }
