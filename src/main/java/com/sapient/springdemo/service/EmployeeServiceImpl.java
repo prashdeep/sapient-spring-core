@@ -26,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public List<Employee> fetchAllEmployees() {
-        return null;
+        return employeeDAO.listAll();
     }
 
     public Employee findById(long id) {

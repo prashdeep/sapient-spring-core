@@ -13,14 +13,14 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(* com.sapient.springdemo.service.EmployeeServiceImpl.*(..))")
+    //@Before("execution(* com.sapient.springdemo.service.EmployeeServiceImpl.*(..))")
     public void logBefore(JoinPoint target) {
         System.out.println("------------logging before the method is getting executed-------------------");
         System.out.println(target.getArgs()[0]);
         System.out.println(target.getTarget() instanceof EmployeeService);
     }
 
-    @Around("execution(* com.sapient.springdemo.service.EmployeeServiceImpl.*(..))")
+    //@Around("execution(* com.sapient.springdemo.service.EmployeeServiceImpl.*(..))")
     public void logAround(ProceedingJoinPoint joinPoint) {
         System.out.println("------------logging before the method is getting executed-------------------");
         if(joinPoint.getArgs()[0] instanceof Employee){

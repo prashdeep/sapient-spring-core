@@ -13,13 +13,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     public Employee save(Employee employee) {
         employees.add(employee);
-        System.out.println("inside the save method of EMployeeDAO");
-        System.out.println("Saved "+employee.getName());
         return employee;
     }
 
     public List<Employee> listAll() {
         System.out.println("Inside the list all method of EmployeeDAO");
+
         return null;
     }
 
