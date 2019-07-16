@@ -12,9 +12,11 @@
     <aop:aspectj-autoproxy />
     <!--<bean id="employeeService" class="com.sapient.springdemo.service.EmployeeServiceImpl">
         <constructor-arg ref="employeeDAO"/>
-    </bean>
+    </bean>-->
 
-    <bean id="employeeDAO" class="com.sapient.springdemo.dao.EmployeeDAOImpl" />-->
+    <bean id="employeeDAO" class="com.sapient.springdemo.dao.MySQLEmployeeDAOImpl" >
+        <constructor-arg ref="jdbcTemplate"/>
+    </bean>
 
     <!--<context:annotation-config /> -->
     <context:component-scan base-package="com.sapient.springdemo"/>
@@ -27,5 +29,19 @@
             <aop:around method="employeeAroundAdvice" pointcut-ref="getNamePointcut" arg-names="proceedingJoinPoint" />
         </aop:aspect> </aop:config> -->
 
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg ref="dbcpDataSource" />
+    </bean>
+
+    <bean id="dbcpDataSource"
+          class="org.apache.commons.dbcp2.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="url"
+                  value="jdbc:mysql://localhost:3306/emp_db" />
+        <property name="username" value="root" />
+        <property name="password" value="welcome" />
+    </bean>
 
 </beans>
